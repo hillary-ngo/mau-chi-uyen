@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dìu Mẹ Đón Con · 陪媽媽迎接寶寶 — Mẫu Chi Uyên · 母之苑</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.2.0/style.css">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+  /* ---- Page-specific additions (kept out of style.css so the main site file stays untouched) ---- */
+  [data-lang] { display: none; }
+  .back-link {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .back-link:hover { color: var(--primary); }
+
+  /* Book cover mockup, reusing hero-visual language but distinct from the homepage version */
+  .book-cover {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    max-width: 340px;
+    margin: 0 auto;
+    background: linear-gradient(160deg, var(--surface) 0%, var(--primary) 100%);
+    border-radius: 6px;
+    box-shadow: 0 30px 70px -24px rgba(84, 70, 58, 0.45);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: var(--ivory);
+    text-align: center;
+    padding: 40px 28px;
+    transform: rotate(-1.5deg);
+  }
+  .book-cover::before {
+    content: "";
+    position: absolute; inset: 14px;
+    border: 1px solid rgba(253, 250, 245, 0.35);
+    border-radius: 3px;
+  }
+  .book-cover .book-seal {
+    font-family: var(--tc);
+    font-size: 40px;
+    margin-bottom: 18px;
+    opacity: 0.95;
+  }
+  .book-cover .book-title-vi {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .book-cover .book-title-zh {
+    font-family: var(--tc);
+    font-size: 15px;
+    opacity: 0.9;
+    margin-bottom: 22px;
+  }
+  .book-cover .book-meta {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .book-badge {
+    position: absolute;
+    bottom: -18px; right: -10px;
+    background: var(--sage-dark);
+    color: var(--ivory);
+    border-radius: 50%;
+    width: 100px; height: 100px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13px;
+    line-height: 1.25;
+    text-align: center;
+    padding: 10px;
+    transform: rotate(6deg);
+    box-shadow: 0 12px 30px -8px rgba(42, 38, 30, 0.4);
+  }
+
+  .feature-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .feature-card {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 28px 26px;
+  }
+  .feature-card .feature-num {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--primary);
+    margin-bottom: 12px;
+  }
+  .feature-card h3 {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--sage-dark);
+    margin-bottom: 8px;
+  }
+  .feature-card p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .privacy-note {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin-top: 16px;
+  }
+
+  .radio-group { display: flex; gap: 20px; flex-wrap: wrap; }
+  .radio-option {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 14px;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .radio-option input { width: auto; }
+
+  @media (max-width: 960px) {
+    .feature-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark"><img src="images/logo.png" alt="Mẫu Chi Uyên"></div>
+      <div>
+        <div class="brand-name">Mẫu Chi Uyên <span class="tc">· 母之苑</span></div>
+        <div class="brand-sub" data-lang="vi">một nơi để về</div>
+        <div class="brand-sub" data-lang="zh">一個可以回去的地方</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="back-link" data-lang="vi">← Về trang chủ</a>
+      <a href="index.html" class="back-link" data-lang="zh">← 返回首頁</a>
+    </div>
+    <div class="lang-toggle" role="tablist">
+      <button id="btn-vi" onclick="setLang('vi')">Tiếng Việt</button>
+      <button id="btn-zh" onclick="setLang('zh')">繁體中文</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top" style="min-height: auto; padding-top: 140px;">
+  <div>
+    <div class="hero-eyebrow" data-lang="vi">tài liệu song ngữ cho mẹ bầu Việt tại Đài</div>
+    <div class="hero-eyebrow" data-lang="zh">給在台越南媽媽的雙語手冊</div>
+
+    <h1 class="hero-title" data-lang="vi">Dìu Mẹ <em>Đón Con</em></h1>
+    <h1 class="hero-title" data-lang="zh">陪妳<em>築夢</em></h1>
+    <span class="tc-title" data-lang="vi" style="display:block; font-weight:400; margin-top:2px;">越南媽媽育兒心驛站 · Sổ tay ngôn ngữ</span>
+    <span class="tc-title" data-lang="zh" style="display:block; font-weight:400; margin-top:2px;">Dìu Mẹ Đón Con · 越南媽媽育兒心驛站</span>
+
+    <p class="hero-lede" data-lang="vi">Một cuốn sổ tay song ngữ Việt–Trung (có phiên âm), đồng hành cùng mẹ từ khi xác nhận mang thai đến các thủ tục trợ cấp dành cho gia đình di dân mới — để mang theo bên mình, dùng ngay tại phòng khám hay ở nhà.</p>
+    <p class="hero-lede" data-lang="zh">一本越南語為主、繁體中文為輔（附拼音）的雙語手冊，陪伴媽媽從確認懷孕到新住民補助申請的每一步——可隨身攜帶，在診間或家中隨時查閱。</p>
+
+    <div class="hero-ctas">
+      <button class="btn btn-primary" onclick="document.getElementById('request').scrollIntoView({behavior:'smooth'})">
+        <span data-lang="vi">Nhận sổ tay</span>
+        <span data-lang="zh">索取手冊</span>
+        <span>→</span>
+      </button>
+      <button class="btn btn-secondary" onclick="document.getElementById('inside').scrollIntoView({behavior:'smooth'})">
+        <span data-lang="vi">Xem nội dung bên trong</span>
+        <span data-lang="zh">看看內容</span>
+      </button>
+    </div>
+  </div>
+
+  <div style="position: relative;">
+    <div class="book-cover">
+      <div class="book-seal">母</div>
+      <div class="book-title-vi">Dìu Mẹ Đón Con</div>
+      <div class="book-title-zh">陪妳築夢：越南媽媽育兒心驛站</div>
+      <div class="book-meta" data-lang="vi">A5 · song ngữ · 10 chương</div>
+      <div class="book-meta" data-lang="zh">A5 · 雙語 · 十個主題</div>
+    </div>
+    <div class="book-badge">
+      <span data-lang="vi">việt · trung<br>+ phiên âm</span>
+      <span data-lang="zh">越語 · 中文<br>+ 拼音</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT / FEATURES ================= -->
+<section class="section" id="about-handbook">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker" data-lang="vi">Vì sao có cuốn sổ tay này</div>
+      <div class="section-kicker" data-lang="zh">為什麼會有這本手冊</div>
+      <h2 class="section-title">
+        <span data-lang="vi">Một người bạn đồng hành,</span>
+        <span data-lang="zh">一位隨身的</span>
+        <span class="tc-title" data-lang="vi">luôn ở bên khi cần</span>
+        <span class="tc-title" data-lang="zh">陪伴者</span>
+      </h2>
+    </div>
+    <p class="section-intro" data-lang="vi">Nhiều mẹ Việt vẫn thấy khó khăn khi trao đổi với bác sĩ hay đọc hiểu giấy tờ trợ cấp bằng tiếng Trung. Cuốn sổ tay này được thiết kế để bạn chỉ tay vào trang cần thiết ngay tại phòng khám, hoặc tự học ở nhà theo tốc độ của riêng mình.</p>
+    <p class="section-intro" data-lang="zh">許多越南媽媽在與醫師溝通或閱讀中文補助文件時仍感到吃力。這本手冊的設計，是讓妳能在診間直接指出需要的頁面，也能在家依照自己的步調自學。</p>
+  </div>
+
+  <div class="feature-row">
+    <div class="feature-card">
+      <div class="feature-num">01</div>
+      <h3 data-lang="vi">Song ngữ + phiên âm</h3>
+      <h3 data-lang="zh">雙語 + 拼音標註</h3>
+      <p data-lang="vi">Tiếng Việt là ngôn ngữ chính, tiếng Trung phồn thể đi kèm, có phiên âm để mẹ ở mọi trình độ tiếng Trung đều dùng được.</p>
+      <p data-lang="zh">越南語為主，繁體中文為輔，並附拼音，讓不同中文程度的媽媽都能理解使用。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">02</div>
+      <h3 data-lang="vi">10 chương xuyên suốt thai kỳ</h3>
+      <h3 data-lang="zh">十個主題，貫穿全孕程</h3>
+      <p data-lang="vi">Từ chương đầu tiên "Xác nhận mang thai" đến chương cuối "Thủ tục trợ cấp cho gia đình di dân mới" — theo đúng trình tự mẹ sẽ trải qua tại Đài Loan.</p>
+      <p data-lang="zh">從第一章「確認懷孕」到最後一章「新住民補助申請」——依照媽媽在台灣會經歷的實際順序編排。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">03</div>
+      <h3 data-lang="vi">Dùng ngay tại phòng khám</h3>
+      <h3 data-lang="zh">診間即用</h3>
+      <p data-lang="vi">Từ vựng, hội thoại mẫu và mẹo thực tế được trình bày rõ ràng để mẹ có thể chỉ tay và dùng ngay khi cần, không cần giải thích dài dòng.</p>
+      <p data-lang="zh">詞彙、示範對話與實用提醒清楚呈現，讓媽媽能直接指出、立即使用，不需要冗長說明。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S INSIDE ================= -->
+<section class="section" id="inside" style="background: var(--cream);">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker" data-lang="vi">Bên trong cuốn sổ tay</div>
+      <div class="section-kicker" data-lang="zh">手冊內容</div>
+      <h2 class="section-title">
+        <span data-lang="vi">Hành trình 10 chương</span>
+        <span data-lang="zh">十個主題的旅程</span>
+      </h2>
+    </div>
+    <p class="section-intro" data-lang="vi">Sổ tay khổ A5, đầy đủ trang bìa, lời ngỏ, danh mục từ vựng y tế và tài liệu tham khảo — đi cùng mẹ suốt hành trình, từ que thử thai đầu tiên đến những thủ tục hành chính cuối cùng.</p>
+    <p class="section-intro" data-lang="zh">A5 尺寸，包含封面、序言、醫療關鍵詞彙附錄與參考資料——陪伴媽媽從第一次驗孕，到最後的行政手續，走完這段旅程。</p>
+  </div>
+
+  <div class="resources-grid" style="grid-template-columns: 1fr;">
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">01</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Xác nhận mang thai</div>
+        <div class="resource-title" data-lang="zh">確認懷孕</div>
+        <div class="resource-desc" data-lang="vi">Chương mở đầu — những dấu hiệu đầu tiên và bước khám thai đầu tiên tại Đài Loan.</div>
+        <div class="resource-desc" data-lang="zh">開篇章節——最初的徵兆，以及在台灣的第一次產檢。</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">···</div>
+      <div>
+        <div class="resource-title" data-lang="vi">8 chương giữa: khám thai, sinh nở, chăm sóc trẻ sơ sinh, dinh dưỡng, tiêm chủng, bảo hiểm y tế và hơn thế nữa</div>
+        <div class="resource-title" data-lang="zh">中間 8 章：產檢、生產、新生兒照護、營養、疫苗接種、健保及更多主題</div>
+        <div class="resource-desc" data-lang="vi">Toàn bộ hành trình thai sản và những tháng đầu nuôi con tại Đài Loan, theo đúng trình tự thực tế.</div>
+        <div class="resource-desc" data-lang="zh">完整涵蓋在台懷孕與育兒初期的歷程，依實際發生順序編排。</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">10</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Thủ tục trợ cấp cho gia đình di dân mới</div>
+        <div class="resource-title" data-lang="zh">新住民補助申請</div>
+        <div class="resource-desc" data-lang="vi">Chương cuối — hướng dẫn từng bước xin các khoản trợ cấp mà gia đình mẹ có thể nhận.</div>
+        <div class="resource-desc" data-lang="zh">最終章——逐步說明媽媽的家庭可申請的各項補助。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REQUEST FORM ================= -->
+<section class="section" id="request">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker" data-lang="vi">Nhận sổ tay</div>
+      <div class="section-kicker" data-lang="zh">索取手冊</div>
+      <h2 class="section-title">
+        <span data-lang="vi">Để lại thông tin,</span>
+        <span data-lang="zh">留下資訊，</span>
+        <span class="tc-title" data-lang="vi">chúng mình sẽ gửi đến bạn</span>
+        <span class="tc-title" data-lang="zh">我們會寄給妳</span>
+      </h2>
+    </div>
+    <p class="section-intro" data-lang="vi">Sổ tay hiện có bản in giới hạn (khoảng 80–120 cuốn) và bản điện tử. Điền thông tin bên dưới, chúng mình sẽ liên hệ để gửi sổ tay phù hợp với bạn.</p>
+    <p class="section-intro" data-lang="zh">目前有限量印刷版（約 80–120 本）及電子版。請填寫以下資訊，我們會與妳聯繫，寄送適合妳的版本。</p>
+  </div>
+
+  <div style="max-width: 560px; margin: 0 auto;">
+    <form id="handbook-form" class="contact-form" action="https://formspree.io/f/mykrpyoe" method="POST">
+      <h3 data-lang="vi">Thông tin của bạn</h3>
+      <h3 data-lang="zh">妳的資訊</h3>
+      <div class="form-sub" data-lang="vi">chỉ mất một phút</div>
+      <div class="form-sub" data-lang="zh">只需要一分鐘</div>
+
+      <div class="form-row">
+        <div class="field">
+          <label data-lang="vi">Tên của bạn</label>
+          <label data-lang="zh">妳的名字</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="field">
+          <label data-lang="vi">Email hoặc điện thoại</label>
+          <label data-lang="zh">Email 或電話</label>
+          <input type="text" name="contact" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label data-lang="vi">Bạn muốn nhận sổ tay dạng nào?</label>
+        <label data-lang="zh">妳希望收到哪種版本？</label>
+        <div class="radio-group">
+          <label class="radio-option">
+            <input type="radio" name="format" value="digital" checked>
+            <span data-lang="vi">Bản điện tử (PDF)</span>
+            <span data-lang="zh">電子版（PDF）</span>
+          </label>
+          <label class="radio-option">
+            <input type="radio" name="format" value="printed">
+            <span data-lang="vi">Bản in (số lượng giới hạn)</span>
+            <span data-lang="zh">紙本（數量有限）</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field" id="address-field" style="display:none;">
+        <label data-lang="vi">Địa chỉ nhận sổ tay in</label>
+        <label data-lang="zh">紙本手冊寄送地址</label>
+        <input type="text" name="address">
+      </div>
+
+      <div class="field">
+        <label data-lang="vi">Lời nhắn (không bắt buộc)</label>
+        <label data-lang="zh">留言（選填）</label>
+        <textarea name="message" placeholder=" "></textarea>
+      </div>
+
+      <!-- honeypot for spam protection -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+        <span data-lang="vi">Gửi yêu cầu</span>
+        <span data-lang="zh">送出申請</span>
+        <span>→</span>
+      </button>
+
+      <p class="privacy-note" data-lang="vi">Thông tin của bạn chỉ dùng để gửi sổ tay và sẽ không được chia sẻ cho bên thứ ba.</p>
+      <p class="privacy-note" data-lang="zh">妳的資訊僅用於寄送手冊，不會提供給第三方。</p>
+    </form>
+
+    <div id="form-success" class="success" style="display:none;">
+      <div class="success-mark">✓</div>
+      <h3 data-lang="vi">Đã nhận được yêu cầu của bạn!</h3>
+      <h3 data-lang="zh">已收到妳的申請！</h3>
+      <p data-lang="vi">Chúng mình sẽ liên hệ trong 24–48 giờ để gửi sổ tay đến bạn.</p>
+      <p data-lang="zh">我們會在 24–48 小時內與妳聯繫，寄送手冊給妳。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="brand-mark" style="background: var(--terracotta);">母</div>
+          <div>
+            <div class="brand-name">Mẫu Chi Uyên</div>
+            <div class="brand-sub">· 母之苑</div>
+          </div>
+        </div>
+        <p data-lang="vi">Mẫu Chi Uyên là không gian kết nối cho các mẹ Việt tại Đài Loan. Dự án được hỗ trợ bởi Cục Di Dân Đài Loan.</p>
+        <p data-lang="zh">母之苑是為在台灣的越南媽媽而設的連結空間。本計畫由中華民國內政部移民署補助。</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-lang="vi">Khám phá</h4>
+        <h4 data-lang="zh">探索</h4>
+        <ul>
+          <li><a href="index.html#about" data-lang="vi">Giới thiệu</a><a href="index.html#about" data-lang="zh">關於我們</a></li>
+          <li><a href="index.html#programs" data-lang="vi">Chương trình</a><a href="index.html#programs" data-lang="zh">服務項目</a></li>
+          <li><a href="handbook.html" data-lang="vi">Sổ tay Dìu Mẹ Đón Con</a><a href="handbook.html" data-lang="zh">陪妳築夢手冊</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-lang="vi">Hỗ trợ</h4>
+        <h4 data-lang="zh">支援</h4>
+        <ul>
+          <li><a href="index.html#resources" data-lang="vi">Tài liệu</a><a href="index.html#resources" data-lang="zh">資源</a></li>
+          <li><a href="index.html#contact" data-lang="vi">Liên hệ</a><a href="index.html#contact" data-lang="zh">聯絡</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div data-lang="vi">© 2026 Mẫu Chi Uyên · Dự án phi lợi nhuận · Đài Loan</div>
+      <div data-lang="zh">© 2026 母之苑 · 非營利計畫 · 台灣</div>
+      <div class="funding-badge">
+        <span data-lang="vi">Tài trợ bởi</span>
+        <span data-lang="zh">贊助單位</span>
+        <strong data-lang="vi">移民署 · 新住民及子女築夢計畫</strong>
+        <strong data-lang="zh">移民署 · 新住民及子女築夢計畫</strong>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function applyLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function (el) {
+      el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+    });
+    document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.documentElement.lang = lang === 'zh' ? 'zh-Hant' : 'vi';
+  }
+  function setLang(lang) {
+    try { localStorage.setItem('mcu-lang', lang); } catch (e) {}
+    applyLang(lang);
+  }
+  var initialLang = 'vi';
+  try { initialLang = localStorage.getItem('mcu-lang') || 'vi'; } catch (e) {}
+  applyLang(initialLang);
+
+  // Show/hide the mailing address field depending on format chosen
+  document.querySelectorAll('input[name="format"]').forEach(function (radio) {
+    radio.addEventListener('change', function () {
+      document.getElementById('address-field').style.display =
+        (this.value === 'printed') ? '' : 'none';
+    });
+  });
+
+  // Progressive-enhancement AJAX submit to Formspree (falls back to normal POST if JS/fetch unavailable)
+  var form = document.getElementById('handbook-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        response.json().then(function (data) {
+          alert(
+            (data.errors ? data.errors.map(function(e){return e.message;}).join(', ') : 'Đã có lỗi xảy ra / 發生錯誤')
+          );
+        });
+      }
+    }).catch(function () {
+      form.submit(); // fall back to plain form POST
+    });
+  });
+</script>
+
+</body>
+</html>
