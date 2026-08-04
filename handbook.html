@@ -91,6 +91,22 @@
     box-shadow: 0 12px 30px -8px rgba(42, 38, 30, 0.4);
   }
 
+  /* Photo version of the cover: same frame/shadow/rotation as .book-cover,
+     but holds a real <img> instead of the CSS mockup content. */
+  .book-cover.book-cover-photo {
+    background: none;
+    padding: 0;
+    overflow: hidden;
+  }
+  .book-cover.book-cover-photo::before { display: none; }
+  .book-cover-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+  }
+
   .feature-row {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -195,12 +211,8 @@
   </div>
 
   <div style="position: relative;">
-    <div class="book-cover">
-      <div class="book-seal">母</div>
-      <div class="book-title-vi">Dìu Mẹ Đón Con</div>
-      <div class="book-title-zh">陪妳築夢：越南媽媽育兒心驛站</div>
-      <div class="book-meta" data-lang="vi">A5 · song ngữ · 10 chương</div>
-      <div class="book-meta" data-lang="zh">A5 · 雙語 · 十個主題</div>
+    <div class="book-cover book-cover-photo">
+      <img src="images/handbook-cover.jpg" alt="Bìa sổ tay Dìu Mẹ Đón Con / 《越南媽媽懷孕語言手冊》封面">
     </div>
     <div class="book-badge">
       <span data-lang="vi">việt · trung<br>+ phiên âm</span>
@@ -315,7 +327,7 @@
   </div>
 
   <div style="max-width: 560px; margin: 0 auto;">
-    <form id="handbook-form" class="contact-form" action="https://formspree.io/f/mykrpyoe" method="POST">
+    <form id="handbook-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
       <h3 data-lang="vi">Thông tin của bạn</h3>
       <h3 data-lang="zh">妳的資訊</h3>
       <div class="form-sub" data-lang="vi">chỉ mất một phút</div>
