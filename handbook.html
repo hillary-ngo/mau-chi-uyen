@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dìu Mẹ Đón Con · 陪媽媽迎接寶寶 — Mẫu Chi Uyên · 母之苑</title>
+<title>Cẩm nang ngôn ngữ cho mẹ bầu Việt tại Đài · 越南媽媽懷孕語言手冊 — Mẫu Chi Uyên · 母之苑</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,6 +171,30 @@
     border-radius: 2px;
   }
 
+  .page-photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .page-photo {
+    margin: 0;
+    background: var(--paper);
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 20px 50px -30px rgba(84, 70, 58, 0.35);
+  }
+  .page-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+  }
+  @media (max-width: 720px) {
+    .page-photo-grid { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 960px) {
     .feature-row { grid-template-columns: 1fr; }
   }
@@ -205,10 +229,10 @@
     <div class="hero-eyebrow" data-lang="vi">tài liệu song ngữ cho mẹ bầu Việt tại Đài</div>
     <div class="hero-eyebrow" data-lang="zh">給在台越南媽媽的雙語手冊</div>
 
-    <h1 class="hero-title" data-lang="vi">Dìu Mẹ <em>Đón Con</em></h1>
-    <h1 class="hero-title" data-lang="zh">陪妳<em>築夢</em></h1>
-    <span class="tc-title" data-lang="vi" style="display:block; font-weight:400; margin-top:2px;">越南媽媽育兒心驛站 · Sổ tay ngôn ngữ</span>
-    <span class="tc-title" data-lang="zh" style="display:block; font-weight:400; margin-top:2px;">Dìu Mẹ Đón Con · 越南媽媽育兒心驛站</span>
+    <h1 class="hero-title" data-lang="vi">Cẩm nang <em>ngôn ngữ</em></h1>
+    <h1 class="hero-title" data-lang="zh"><em>越南媽媽</em>懷孕語言手冊</h1>
+    <span class="tc-title" data-lang="vi" style="display:block; font-weight:400; margin-top:2px;">cho mẹ bầu Việt tại Đài · 越南媽媽懷孕語言手冊</span>
+    <span class="tc-title" data-lang="zh" style="display:block; font-weight:400; margin-top:2px;">Cẩm nang ngôn ngữ cho mẹ bầu Việt tại Đài</span>
 
     <p class="hero-lede" data-lang="vi">Một cuốn sổ tay song ngữ Việt–Trung (có phiên âm), đồng hành cùng mẹ từ khi xác nhận mang thai đến các thủ tục trợ cấp dành cho gia đình di dân mới — để mang theo bên mình, dùng ngay tại phòng khám hay ở nhà.</p>
     <p class="hero-lede" data-lang="zh">一本越南語為主、繁體中文為輔（附拼音）的雙語手冊，陪伴媽媽從確認懷孕到新住民補助申請的每一步——可隨身攜帶，在診間或家中隨時查閱。</p>
@@ -228,7 +252,7 @@
 
   <div style="position: relative;">
     <div class="book-cover book-cover-photo">
-      <img src="images/handbook-cover.jpg" alt="Bìa sổ tay Dìu Mẹ Đón Con / 《越南媽媽懷孕語言手冊》封面">
+      <img src="images/handbook-cover.jpg" alt="Bìa Cẩm nang ngôn ngữ cho mẹ bầu Việt tại Đài / 《越南媽媽懷孕語言手冊》封面">
     </div>
     <div class="book-badge">
       <span data-lang="vi">việt · trung<br>+ phiên âm</span>
@@ -298,30 +322,98 @@
     <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
       <div class="resource-icon">01</div>
       <div>
-        <div class="resource-title" data-lang="vi">Xác nhận mang thai</div>
-        <div class="resource-title" data-lang="zh">確認懷孕</div>
-        <div class="resource-desc" data-lang="vi">Chương mở đầu — những dấu hiệu đầu tiên và bước khám thai đầu tiên tại Đài Loan.</div>
-        <div class="resource-desc" data-lang="zh">開篇章節——最初的徵兆，以及在台灣的第一次產檢。</div>
+        <div class="resource-title" data-lang="vi">Xác nhận thai & Khám thai lần đầu</div>
+        <div class="resource-title" data-lang="zh">確認懷孕 & 第一次產檢</div>
       </div>
     </div>
     <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
-      <div class="resource-icon">···</div>
+      <div class="resource-icon">02</div>
       <div>
-        <div class="resource-title" data-lang="vi">8 chương giữa: khám thai, sinh nở, chăm sóc trẻ sơ sinh, dinh dưỡng, tiêm chủng, bảo hiểm y tế và hơn thế nữa</div>
-        <div class="resource-title" data-lang="zh">中間 8 章：產檢、生產、新生兒照護、營養、疫苗接種、健保及更多主題</div>
-        <div class="resource-desc" data-lang="vi">Toàn bộ hành trình thai sản và những tháng đầu nuôi con tại Đài Loan, theo đúng trình tự thực tế.</div>
-        <div class="resource-desc" data-lang="zh">完整涵蓋在台懷孕與育兒初期的歷程，依實際發生順序編排。</div>
+        <div class="resource-title" data-lang="vi">Các mốc khám thai & Siêu âm</div>
+        <div class="resource-title" data-lang="zh">產檢時程 & 超音波檢查</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">03</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Triệu chứng thai kỳ thường gặp</div>
+        <div class="resource-title" data-lang="zh">常見懷孕症狀</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">04</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Dinh dưỡng & Thực phẩm cần tránh</div>
+        <div class="resource-title" data-lang="zh">飲食營養 & 懷孕期間應避免的食物</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">05</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Xét nghiệm & Tầm soát</div>
+        <div class="resource-title" data-lang="zh">產檢檢查項目 & 篩檢</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">06</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Nhập viện sinh & Thủ tục giấy tờ</div>
+        <div class="resource-title" data-lang="zh">住院生產 & 相關手續</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">07</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Sinh thường & Sinh mổ & Giảm đau</div>
+        <div class="resource-title" data-lang="zh">自然產 & 剖腹產 & 無痛分娩</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">08</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Sau sinh & Ở cữ tại Đài Loan</div>
+        <div class="resource-title" data-lang="zh">產後照護 & 在台灣坐月子</div>
+      </div>
+    </div>
+    <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
+      <div class="resource-icon">09</div>
+      <div>
+        <div class="resource-title" data-lang="vi">Chăm sóc trẻ sơ sinh</div>
+        <div class="resource-title" data-lang="zh">新生兒照護</div>
       </div>
     </div>
     <div class="resource" style="cursor: default; grid-template-columns: 60px 1fr;">
       <div class="resource-icon">10</div>
       <div>
-        <div class="resource-title" data-lang="vi">Thủ tục trợ cấp cho gia đình di dân mới</div>
-        <div class="resource-title" data-lang="zh">新住民補助申請</div>
-        <div class="resource-desc" data-lang="vi">Chương cuối — hướng dẫn từng bước xin các khoản trợ cấp mà gia đình mẹ có thể nhận.</div>
-        <div class="resource-desc" data-lang="zh">最終章——逐步說明媽媽的家庭可申請的各項補助。</div>
+        <div class="resource-title" data-lang="vi">Bảo hiểm, Trợ cấp & Quyền lợi</div>
+        <div class="resource-title" data-lang="zh">保險、補助 & 相關福利</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ================= INSIDE THE PAGES (photos) ================= -->
+<section class="section" id="inside-photos">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker" data-lang="vi">Xem thử bên trong</div>
+      <div class="section-kicker" data-lang="zh">內頁搶先看</div>
+      <h2 class="section-title">
+        <span data-lang="vi">Vài trang từ cuốn</span>
+        <span data-lang="zh">來自書中的</span>
+        <span class="tc-title" data-lang="vi">cẩm nang thật</span>
+        <span class="tc-title" data-lang="zh">幾頁內容</span>
+      </h2>
+    </div>
+  </div>
+
+  <div class="page-photo-grid">
+    <figure class="page-photo">
+      <img src="images/handbook-page-1.jpg" alt="Trang nội dung mẫu 1 / 內頁範例一">
+    </figure>
+    <figure class="page-photo">
+      <img src="images/handbook-page-2.jpg" alt="Trang nội dung mẫu 2 / 內頁範例二">
+    </figure>
   </div>
 </section>
 
@@ -368,7 +460,7 @@
         <ul>
           <li><a href="index.html#about" data-lang="vi">Giới thiệu</a><a href="index.html#about" data-lang="zh">關於我們</a></li>
           <li><a href="index.html#programs" data-lang="vi">Chương trình</a><a href="index.html#programs" data-lang="zh">服務項目</a></li>
-          <li><a href="handbook.html" data-lang="vi">Sổ tay Dìu Mẹ Đón Con</a><a href="handbook.html" data-lang="zh">陪妳築夢手冊</a></li>
+          <li><a href="handbook.html" data-lang="vi">Cẩm nang ngôn ngữ cho mẹ bầu</a><a href="handbook.html" data-lang="zh">越南媽媽懷孕語言手冊</a></li>
         </ul>
       </div>
       <div class="footer-col">
