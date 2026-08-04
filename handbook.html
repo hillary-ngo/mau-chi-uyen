@@ -155,6 +155,22 @@
   }
   .radio-option input { width: auto; }
 
+  .gform-frame {
+    max-width: 660px;
+    margin: 0 auto;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 6px;
+    box-shadow: 0 20px 50px -30px rgba(84, 70, 58, 0.35);
+  }
+  .gform-frame iframe {
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+  }
+
   @media (max-width: 960px) {
     .feature-row { grid-template-columns: 1fr; }
   }
@@ -326,75 +342,8 @@
     <p class="section-intro" data-lang="zh">目前有限量印刷版（約 80–120 本）及電子版。請填寫以下資訊，我們會與妳聯繫，寄送適合妳的版本。</p>
   </div>
 
-  <div style="max-width: 560px; margin: 0 auto;">
-    <form id="handbook-form" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-      <h3 data-lang="vi">Thông tin của bạn</h3>
-      <h3 data-lang="zh">妳的資訊</h3>
-      <div class="form-sub" data-lang="vi">chỉ mất một phút</div>
-      <div class="form-sub" data-lang="zh">只需要一分鐘</div>
-
-      <div class="form-row">
-        <div class="field">
-          <label data-lang="vi">Tên của bạn</label>
-          <label data-lang="zh">妳的名字</label>
-          <input type="text" name="name" required>
-        </div>
-        <div class="field">
-          <label data-lang="vi">Email hoặc điện thoại</label>
-          <label data-lang="zh">Email 或電話</label>
-          <input type="text" name="contact" required>
-        </div>
-      </div>
-
-      <div class="field">
-        <label data-lang="vi">Bạn muốn nhận sổ tay dạng nào?</label>
-        <label data-lang="zh">妳希望收到哪種版本？</label>
-        <div class="radio-group">
-          <label class="radio-option">
-            <input type="radio" name="format" value="digital" checked>
-            <span data-lang="vi">Bản điện tử (PDF)</span>
-            <span data-lang="zh">電子版（PDF）</span>
-          </label>
-          <label class="radio-option">
-            <input type="radio" name="format" value="printed">
-            <span data-lang="vi">Bản in (số lượng giới hạn)</span>
-            <span data-lang="zh">紙本（數量有限）</span>
-          </label>
-        </div>
-      </div>
-
-      <div class="field" id="address-field" style="display:none;">
-        <label data-lang="vi">Địa chỉ nhận sổ tay in</label>
-        <label data-lang="zh">紙本手冊寄送地址</label>
-        <input type="text" name="address">
-      </div>
-
-      <div class="field">
-        <label data-lang="vi">Lời nhắn (Vui lòng điền địa chỉ nhận sổ tay)</label>
-        <label data-lang="zh">留言（請填寫收件地址）</label>
-        <textarea name="message" placeholder=" "></textarea>
-      </div>
-
-      <!-- honeypot for spam protection -->
-      <input type="text" name="_gotcha" style="display:none">
-
-      <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
-        <span data-lang="vi">Gửi yêu cầu</span>
-        <span data-lang="zh">送出申請</span>
-        <span>→</span>
-      </button>
-
-      <p class="privacy-note" data-lang="vi">Thông tin của bạn chỉ dùng để gửi sổ tay và sẽ không được chia sẻ cho bên thứ ba.</p>
-      <p class="privacy-note" data-lang="zh">妳的資訊僅用於寄送手冊，不會提供給第三方。</p>
-    </form>
-
-    <div id="form-success" class="success" style="display:none;">
-      <div class="success-mark">✓</div>
-      <h3 data-lang="vi">Đã nhận được yêu cầu của bạn!</h3>
-      <h3 data-lang="zh">已收到妳的申請！</h3>
-      <p data-lang="vi">Chúng mình sẽ liên hệ trong 24–48 giờ để gửi sổ tay đến bạn.</p>
-      <p data-lang="zh">我們會在 24–48 小時內與妳聯繫，寄送手冊給妳。</p>
-    </div>
+  <div class="gform-frame">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe7XJdpGdUe9vM4-6KT7lh8CwHJrRa5nHFSZubZR_b0-Qe0Gw/viewform?embedded=true" width="100%" height="1101" frameborder="0" marginheight="0" marginwidth="0">Đang tải… / 載入中…</iframe>
   </div>
 </section>
 
@@ -471,39 +420,6 @@
   var initialLang = 'vi';
   try { initialLang = localStorage.getItem('mcu-lang') || 'vi'; } catch (e) {}
   applyLang(initialLang);
-
-  // Show/hide the mailing address field depending on format chosen
-  document.querySelectorAll('input[name="format"]').forEach(function (radio) {
-    radio.addEventListener('change', function () {
-      document.getElementById('address-field').style.display =
-        (this.value === 'printed') ? '' : 'none';
-    });
-  });
-
-  // Progressive-enhancement AJAX submit to Formspree (falls back to normal POST if JS/fetch unavailable)
-  var form = document.getElementById('handbook-form');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var data = new FormData(form);
-    fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    }).then(function (response) {
-      if (response.ok) {
-        form.style.display = 'none';
-        document.getElementById('form-success').style.display = 'block';
-      } else {
-        response.json().then(function (data) {
-          alert(
-            (data.errors ? data.errors.map(function(e){return e.message;}).join(', ') : 'Đã có lỗi xảy ra / 發生錯誤')
-          );
-        });
-      }
-    }).catch(function () {
-      form.submit(); // fall back to plain form POST
-    });
-  });
 </script>
 
 </body>
