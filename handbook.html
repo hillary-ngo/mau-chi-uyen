@@ -370,8 +370,8 @@
       </div>
 
       <div class="field">
-        <label data-lang="vi">Lời nhắn (không bắt buộc)</label>
-        <label data-lang="zh">留言（選填）</label>
+        <label data-lang="vi">Lời nhắn (Vui lòng điền địa chỉ nhận sổ tay)</label>
+        <label data-lang="zh">留言（請填寫收件地址）</label>
         <textarea name="message" placeholder=" "></textarea>
       </div>
 
@@ -446,8 +446,19 @@
 
 <script>
   function applyLang(lang) {
+    var INLINE_TAGS = ['SPAN', 'A', 'EM', 'STRONG', 'LABEL'];
     document.querySelectorAll('[data-lang]').forEach(function (el) {
-      el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+      var match = el.getAttribute('data-lang') === lang;
+      if (!match) {
+        el.style.setProperty('display', 'none', 'important');
+        return;
+      }
+      // .tc-title spans are meant to break onto their own line even though
+      // <span> is normally inline; everything else uses its natural type.
+      var d = el.classList.contains('tc-title')
+        ? 'block'
+        : (INLINE_TAGS.indexOf(el.tagName) !== -1 ? 'inline' : 'block');
+      el.style.setProperty('display', d, 'important');
     });
     document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
     document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
